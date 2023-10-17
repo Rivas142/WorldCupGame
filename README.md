@@ -1,5 +1,5 @@
 # World Cup Game -- Python-based Game
-This game was created in Python and it allows the player to simulate playing in the world cup, selecting a team that participated in the 2022 World Cup and versing the computer in matches based off of penatly shootouts with the goal of winning the tournament. After an amazing world cup where Argentina managed to beat France in the final to win, I wanted to create a game which allowed me to choose different teams and see how the outcome could've have been different. The game is played in the terminal. 
+This game was created in Python and it allows the player to simulate playing in the world cup, selecting a team that participated in the 2022 World Cup and versing the computer in matches based off of penatly shootouts with the goal of winning the tournament. After an amazing World Cup where Argentina managed to beat France in the final to win and a soccer super fan, I wanted to create a game which allowed me to choose different teams and see how the outcome could've have been different. The game is played in the terminal. 
 
 Created by [Luis Rivas](https://github.com/Rivas142)
 
@@ -12,7 +12,7 @@ Created by [Luis Rivas](https://github.com/Rivas142)
 `game.py` is the Python script that contains most of the functions used for the game.
 
 
-The game is the same tournament style that the world cup was based off of, so the player will start in a group with three other random teams. There will be 8 groups in total and the results for the other groups, that does not include the player's team, will be simulated as well. The player will have one match against each of the three teams, with points awarded based on win, loss, or draw (3, 0, and 1 respectively). Each match will be a penalty shoot-out in both group stage and knockout stage games, with draws being allowed in the group stages. Once passing the group stages, the player will progress by versing teams in the round of 16, quarter-final, semi-final, and final. 
+The game is the same tournament style that the world cup was based off of, so the player will start in a group with three other random teams. There will be 8 groups in total and the results for the other groups, that does not include the player's team, will be simulated as well. The player will have 3 matches, one against each of the three teams, with points awarded based on win, loss, or draw (3, 0, and 1 respectively). Each match will be a penalty shoot-out in both group stage and knockout stage games, with draws being allowed in the group stages. Once passing the group stages, the player will progress by versing teams in the round of 16, quarter-final, semi-final, and final. 
 
 **Note that the game is based off the teams that played in the tournament and the style of tournament, but the rest will have modifications. 
 
@@ -47,11 +47,11 @@ The player will first select the difficulty that would like to play at. The diff
 
 `"probability_2"` : 20%
 
-After selecting the difficulty, the player then gets prompted to select the team they want to use (must be a team that participated in the 2022 World Cup). Once selecting the team the player's group as well as the groups for every other team in the tournament will be created. An example group can be seen below (For this example the player has selected Spain as their team, but the game will give the option to see every group for the tournament): 
+After selecting the difficulty, the player then gets prompted to select the team they want to use (must be a team that participated in the 2022 World Cup). Once selecting the team, the player's group as well as the groups for every other team in the tournament will be created. An example group can be seen below (For this example the player has selected Spain as their team, but the game will give the option to see every group for the tournament): 
 
 ![image](https://github.com/Rivas142/WorldCupGame/assets/44100453/f727ff66-8da4-4210-8043-51ff62b6434c)
 
-The player is then ready to start the matches! To advance to the knockout games, the player's team must be top 2 in the group in number of points. If the player's team is 3rd or 4th in the group, they will be eliminated and the game will end. 
+The player is then ready to start the matches! To advance to the knockout games, the player's team must be top 2 in the group in terms of number of points. If the player's team is 3rd or 4th in the group, they will be eliminated and the game will end. 
 
 Before starting any match in the tournament, the game will prompt the start of a head's or tail's game. This will decide if the player or the computer will choose to attack first (shoot first) or defend first (block first). This process is the same when starting a penatly shootout in real life. The first message will be like this:
 
@@ -61,7 +61,7 @@ Whatever the player chooses, the computer is left with the other option. So for 
 
 ![image](https://github.com/Rivas142/WorldCupGame/assets/44100453/2e97b7fe-3694-4d93-8dcf-9db39b2356e4)
 
-The player for the example chooses to attack first. Once the decision has been made, the match starts. Once the match starts, a scoreboard of how many penalties each team scores appear. Since the game just started, all the 5 spots for each team (Since each team will take 5 penalties) will be dashes (empty). Once the teams start taking their penalties the dash for the turn will turn to either an "o" (scored) or "x" (shot got saved). The scoreboard empty will look like:
+The player for the example chooses to attack first. Once the decision has been made, the match starts. Once the match starts, a scoreboard of how many penalties each team scores appear. Since the game just started, all the 5 spots for each team (Since each team will take 5 penalties) will be dashes (empty). Once the teams start taking their penalties, the dash for the turn will turn to either an "o" (scored) or "x" (shot got saved). The scoreboard empty will look like:
 
 ![image](https://github.com/Rivas142/WorldCupGame/assets/44100453/2c00a097-f774-43e9-837f-01c58df790f8)
 
@@ -112,9 +112,15 @@ If the player manages to win every match, including the final, they have won the
 
 ### `teams.py`
 
+`teams.py` is the Python script that contains the variable "wc_teams" that lists all the teams included in the tournament. It also contains the class "Team" that allows teams in the tournament to be stored as "Team" objects, to allow the game to keep track of the amount of points the team has, whether they are still in the tournament or not, if the team is attacking or defending in the match, and the name of the team. 
+
+If the user of the game would like to change the teams that are included in the tournament, they would change the teams in the "wc_teams" variable but the total number of teams must be 32. 
 
 ## How To Use
 
+Run the `main.py` script, this starts the game. Use the terminal to enter the inputs needed to play the game when prompted. 
 
-## Known Issues
-- 
+## Known Issues / Improvements 
+- When finishing the group stages, there is the possibility of 2nd and 3rd place teams to tie in terms of points, in that case it is whoever is listed as second in the table that advances. There could be a functionality added that can determine which of the two teams go through through either luck (such as coin toss) or through matchmaking, which would be between the two teams who scored the most penalties or who won between them when they versed in their match.
+- There could be a factor of randomness added to see if the person shooting misses the goal entirely, which occurs in real life games as well. This would add more engagement and excitement to the game.
+- A UI could be created for the game, which would make it more aesthetically pleasing as well as more functional for the user to play the game. 
